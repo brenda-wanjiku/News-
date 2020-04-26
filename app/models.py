@@ -13,6 +13,7 @@ class Source:
 
 
 class News:
+    all_news []
     '''
     Categorized news class to define News Objects
     '''
