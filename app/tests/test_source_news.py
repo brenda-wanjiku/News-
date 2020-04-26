@@ -1,5 +1,5 @@
 import unittest
-from app.models import Source
+from ..models import Source
 
 class SourceTest(unittest.TestCase):
     '''
@@ -16,7 +16,7 @@ class SourceTest(unittest.TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.new_category,Source))
 
-     def test_correct_source_init(self):
+    def test_correct_source_init(self):
         '''
         Test  that confirms that the object is instantiated correctly.
         '''

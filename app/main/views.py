@@ -6,13 +6,9 @@ from ..requests import get_sources
 #Views 
 @main.route('/')
 def index():
-
+    news_source = get_sources()
     title = 'News-app'
-    general = get_sources('general')
-    business = get_sources('business')
-    technology = get_sources('technology')
-    entertainment = get_sources('entertainment')
-    science = get_sources('science')
-    sports = get_sources('sports')
+    
 
-    return render_template('index.html', title = title, general = general, business = business, technology = technology, sports = sports, entertainment = entertainment, science = science )
+    return render_template('index.html', title = title, news_source = news_source )
+

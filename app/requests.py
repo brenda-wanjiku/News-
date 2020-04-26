@@ -15,9 +15,9 @@ def configure_requests(app):
     
 
 
-def get_sources():
+def get_sources(sources):
 
-    source_url =  source_base_url.format(api_key)
+    source_url =  source_base_url.format(sources, api_key)
 
     with urllib.request.urlopen(source_url) as url:
         source_data = url.read()

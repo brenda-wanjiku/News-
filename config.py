@@ -2,6 +2,8 @@ import os
 
 class Config:
     SOURCE_NEWS_BASE_URL = 'http://newsapi.org/v2/sources?&apiKey={}'
+    CATEGORIZED_SOURCE_BASE_URL = 'https://newsapi.org/v2/sources?language=en&category={}&sortBy=popularity&apiKey={}'
+
     NEWS_API_KEY = os.environ.get('API_KEY')
  
 
