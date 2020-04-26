@@ -13,14 +13,14 @@ class Source:
 
 
 class News:
-    all_news []
     '''
     Categorized news class to define News Objects
     '''
 
-    def __init__(self,Sourcename, author, description, url, urlToImage, publishedAt, content):
-        self.Sourcename = Sourcename
+    def __init__(self,name, author,title, description, url, urlToImage, publishedAt, content):
+        self.name = name
         self.author = author
+        self.title = title
         self.description = description
         self.url = url
         self.urlToImage = urlToImage
