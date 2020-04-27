@@ -7,28 +7,22 @@ from ..requests import get_sources, get_articles
 #Views 
 @main.route('/')
 def index():
-    sources = get_sources('general')
+    general = get_sources('general')
+    business = get_sources('business')
+    technology = get_sources('technology')
+    technology = get_sources('general')
+    sport = get_sources('general')
+
     title = 'News-app'
     
 
-    return render_template('index.html', title = title, sources = sources )
-
-
-@main.route('/source/<category>')
-def categorized_sources(category):
-    title = f'{sources[0].category}'
-
-    return render_template('', title = title)
-
+    return render_template('index.html', title = title, general = general, business = business, technology= technology  )
 
 
 @main.route('/source/<id>')
+def articles(id):
+    news_articles = get_articles(id)
 
+    title = f'{id}'
 
-
-@main.route('/source/<title>')
-def article(article_title):
-    article_list = get_articles(id)
-    title = f'{news_list.title}'
-
-    return render_template('', title = title )
+    return render_template('source.html', title = title, news_articles = news_articles)

@@ -1,5 +1,5 @@
 import urllib.request, json 
-from .models import Source
+from .models import Source, News
 
 #Getting api key
 api_key = None
@@ -9,11 +9,11 @@ source_base_url = None
 category_base_url = None
 
 def configure_requests(app):
-    global api_key, source_base_url, category_base_url
+    global api_key, source_base_url, category_base_url,article_base_url
     api_key = app.config['NEWS_API_KEY']
     source_base_url = app.config['SOURCE_NEWS_BASE_URL']
     category_base_url = app.config['CATEGORIZED_BASE_URL']    
-    
+    article_base_url = app.config['ARTICLE_BASE_URL']
 
 
 def get_sources(category):
@@ -51,11 +51,13 @@ def process_sources(source_list):
     return sources_results
 
 def get_articles(id):
-    article_url = base_url.format(id,api_key)
-    
+    print(id)
+    article_url = article_base_url.format(id,api_key)
+    print(article_url)
     with urllib.request.urlopen(article_url) as url:
         article_data = url.read()
         article_response = json.loads(article_data)
+       
 
         article_result = None
 
@@ -70,7 +72,8 @@ def process_articles(article_list):
     article_results = []
 
     for article_item in article_list:
-        name = article_item.get("source['name]")
+        id = article_item.get("source['id']")
+        name = article_item.get("source['name']")
         author = article_item.get('author')
         title = article_item.get('title')
         description = article_item.get('description')
@@ -79,10 +82,8 @@ def process_articles(article_list):
         publishedAt = article_item.get('publishedAt')
         content = article_item.get('content')
         
-
-        if urlToImage:
-            article_object = News(name,author,description,url,urlToImage,publishedAt,content)
-            article_results.append(article_object)
+        article_object = News(id, name,author,title,description,url,urlToImage,publishedAt,content)
+        article_results.append(article_object)
 
     return article_results
 
