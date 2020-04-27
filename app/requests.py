@@ -6,24 +6,25 @@ api_key = None
 
 #Getting the base url
 source_base_url = None
+category_base_url = None
 
 def configure_requests(app):
     global api_key, source_base_url
     api_key = app.config['NEWS_API_KEY']
     source_base_url = app.config['SOURCE_NEWS_BASE_URL']
-    category_base_url = app.config[' CATEGORIZED_SOURCE_BASE_URL']
+    category_base_url = app.config['CATEGORIZED_BASE_URL']
+    
+
 
     
 
 
-def get_sources(category):
-
-    source_url =  category_base_url.format(category, api_key)
-
+def get_sources():
+    source_url = source_base_url.format(api_key)
     with urllib.request.urlopen(source_url) as url:
         source_data = url.read()
-        print(source_data)
         source_response = json.loads(source_data)
+        
 
         source_results = None
 
@@ -33,10 +34,10 @@ def get_sources(category):
                   
     return source_results
 
-
 def process_sources(source_list):
     sources_results = []
     for source_item in source_list:
+
         id = source_item.get('id')
         name = source_item.get('name')
         description = source_item.get('description')
@@ -47,6 +48,7 @@ def process_sources(source_list):
 
         source_object = Source(id,name,description,url,category,language,country)
         sources_results.append(source_object)
+
 
     return sources_results
 

@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macros %}
+
 
 
 <!-- Styles block -->
@@ -13,19 +13,20 @@
 <!-- Content block-->
 {% block content %}
 <h2>General News Sources</h2>
-{{ macro.displaySourceList(general)}}
+    {{sources.id}}
+    {{sources.name}}
+    {{sources.description}}
 
 <h2>Business News Sources</h2>
-{{ macro.displaySourceList(business)}}
+
 
 
 <h2>Technology News Sources</h2>
-{{ macro.displaySourceList(technology)}}
 
 
 <h2>Entertainment News Sources</h2>
-{{ macro.displaySourceList(entertainment)}}
+
 
 <h2>Sports News Sources</h2>
-{{ macro.displaySourceList(sports)}}
+
 {% endblock %}

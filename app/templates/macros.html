@@ -1,4 +1,4 @@
-{{%macro displayNewsSources(source_list)%}
+{%macro displayNewsSources(source_list)%}
 
 {%for source in source_list%}
 
@@ -8,10 +8,9 @@
       <h5 class="card-title">{{source.name}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{source.category}}</h6>
       <p class="card-text">{{source.description}}</p>
-      <a href="/search/{{source.id}}" class="card-link">View Top Headlines</a>
     </div>
   </div>
 </div>
 
 {%endfor%}
-{%endmacro%}
+{%endmacro%} -->
