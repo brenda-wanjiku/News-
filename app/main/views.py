@@ -3,10 +3,11 @@ from . import main
 from ..requests import get_sources, get_articles
 
 
+
 #Views 
 @main.route('/')
 def index():
-    sources = get_sources()
+    sources = get_sources('general')
     title = 'News-app'
     
 
