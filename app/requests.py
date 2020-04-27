@@ -12,14 +12,11 @@ def configure_requests(app):
     global api_key, source_base_url
     api_key = app.config['NEWS_API_KEY']
     source_base_url = app.config['SOURCE_NEWS_BASE_URL']
-    category_base_url = app.config['CATEGORIZED_BASE_URL']
-    
+    category_base_url = app.config['CATEGORIZED_BASE_URL']    
+    print(api_key)
 
 
-    
-
-
-def get_sources():
+def get_sources(category):
     source_url = source_base_url.format(api_key)
     with urllib.request.urlopen(source_url) as url:
         source_data = url.read()

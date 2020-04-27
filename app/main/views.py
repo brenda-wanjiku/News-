@@ -8,8 +8,9 @@ from ..requests import get_sources, get_articles
 def index():
     sources = get_sources()
     title = 'News-app'
+    
 
-    return render_template('index.html', title = title, sources = sources)
+    return render_template('index.html', title = title, sources = sources )
 
 
 @main.route('/source/<category>')
@@ -21,11 +22,7 @@ def categorized_sources(category):
 
 
 @main.route('/source/<id>')
-def source_articles(id):
-    news_list = get_articles(id)
-    title = f'{id}'
 
-    return render_template('', news_list = news_list, title = title)
 
 
 @main.route('/source/<title>')
