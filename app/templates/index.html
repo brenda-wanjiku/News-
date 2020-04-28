@@ -1,47 +1,40 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro %}
+{%extends 'base.html'%}
+{%import 'macros.html' as macro with context%}
 
 
 <!-- Styles block -->
-{% block styles%}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
+{%block styles%}
+  {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Comic+Neue|Crimson+Text|EB+Garamond|Merriweather|Neucha|Noto+Serif|Oxygen|PT+Sans|Patrick+Hand|Patua+One|Roboto+Slab|Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma+2|Cabin|Questrial|Roboto+Slab|Source+Serif+Pro&display=swap" rel="stylesheet">
+
+{%endblock%}
 
 
 
 <!-- Content block-->
-{% block content %}
-<div class= "row"> 
-    <div class = "col-md-3">
-<h2>General News Sources</h2>
+{%block content%}
+
+<div class="container">
+<h1 class="text-center"> {{title}} </h1>
+
 {{ macro.displayNewsSources(general)}}
 </div>
-</div>
 
-<div class= "row"> 
-<div class = "col-md-3">
-<h2>Business News Sources</h2>
+
 {{ macro.displayNewsSources(business)}}
-</div>
-</div>
 
-<div class= "row"> 
-<div class = "col-md-3">
-<h2>Technology News Sources</h2>
+ 
+
+
 {{ macro.displayNewsSources(technology)}}
-</div>
-</div>
 
-<div class= "row"> 
-<div class = "col-md-3">
-<h2>Entertainment News Sources</h2>
-{{ macro.displaySourceList}}
-</div>
-</div>
 
-<h2>Sports News Sources</h2>
-{{ macro.displaySourceList}}
+{{ macro.displayNewsSources(entertainment)}}
+
+
+{{ macro.displayNewsSources(sports)}}
 
 </div>
-{% endblock %}
+{%endblock%}

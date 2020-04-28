@@ -1,0 +1,56 @@
+.card-body{
+    background-color: grey;
+    text-align: center;
+    margin: 70px;
+    font-family: 'Questrial', sans-serif;
+}
+.jumbotron{
+    background-color: grey;
+    text-align: center;
+    height: 800px;
+    width: 650x;
+    margin: 10px;
+    border: solid black;
+}
+img{
+    margin-left: 80px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+button{
+    background-color: grey;
+    margin-top: 20px;
+    color: grey;
+    font-family: 'Questrial', sans-serif;
+    font-size: 20px;
+    background-color: black;
+} 
+
+h3{
+    font-family: 'Rock Salt', cursive;
+    color: darkseagreen;
+    font-size: 80px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+h5{
+    font-size: 25px;
+    font-family: 'Cabin', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+h6{
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+p{
+    font-family: 'Questrial', sans-serif;
+}

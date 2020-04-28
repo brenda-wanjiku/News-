@@ -1,0 +1,46 @@
+h1{
+    font-family: 'Rock Salt', cursive;
+    font-size: 100px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    color: darkgreen;
+}
+h2{
+    font-size: 50px;
+    font-family: 'Oxygen', sans-serif;
+}
+h4{
+    font-size: 40px;
+}
+.card-text{
+    font-size: 20px;
+    font-family: 'Questrial', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.card-body{
+    background-color: grey;
+    border: solid black;
+}
+.jumbotron{
+    background-color: grey;
+    text-align: center;
+    height: 800px;
+}
+.card-header{
+    font-family: 'Source Serif Pro', serif;
+    font-weight: bold;
+}
+button{
+    background-color: grey;
+    margin-top: 20px;
+    color: grey;
+    font-family: 'Questrial', sans-serif;
+    font-size: 20px;
+    background-color: black;
+} 
+hr{
+    color: black;
+
+}

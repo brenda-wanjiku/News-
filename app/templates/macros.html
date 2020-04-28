@@ -1,34 +1,37 @@
 {%macro displayNewsSources(sources_list)%}
 
 {%for source in sources_list%}
-
-<div class="col-md-3 col-lg-2 col-sm-4 col-xs-6">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body ">
-      <h6 class="card-subtitle mb-2 text-muted">{{source.id}}</h6>
+<div id="source-body"> 
+  <div class="col-md-4">
+    <div class="card-body jumbotron"> 
+      <div class="card-header"><h4><strong>{{source.id}}</strong></h4></div>
+      <hr>
       <p class="card-text">{{source.category}}</p>
       <p class="card-text">{{source.description}}</p>
-      <a href="/source/{{source.id}}"><button type="button" class="btn btn-info">  Explore News Articles</button></a>
+      <a href= "{{ source.url }}" ><button type="button" class="btn btn-light btn-lg"> Visit Website</button></a>
+      <a href="/source/{{source.id}}"><button type="button" class="btn btn-outline-primary btn-lg">  Explore News Articles</button></a>
+      </div>
     </div>
   </div>
-</div>
 {%endfor%}
 {%endmacro%}
 
 {% macro displayNewsArticle(article_list)%}
 {% for article in article_list%}
-div class="col-md-3 col-lg-2 col-sm-4 col-xs-6">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body ">
+  <div class="card">
+    <div class="card-body text-center ">
+      <div class="col-md-6">
+      <div class="jumbotron">
       <img src={{article.urlToImage}} class="img-responsive">
-      <h6 class="card-subtitle mb-2 text-muted">{{article.id}}</h6>
-      <p class="card-text">{{article.title}}</p>
-      <p class="card-text">{{article.author}}</p>
-      <p class="card-text">{{article.publishedAt}}</p>
-      <p class="card-text">{{article.description}}</p>
-      <a href={{article.url}}><button type="button" class="btn btn-info"> More.. </button></a>
+      <h5 class="card-text"> {{article.title}}</h5>
+      <h6 class="card-text"> {{article.description}}</h6>
+      <p class="card-text"><strong> Written by:</strong>  {{article.author}}</p>
+      <p class="card-text"><strong>Published on:</strong> {{article.publishedAt}}</p>
+      
+      <a href={{article.url}}><button type="button" class="btn btn-outline-primary btn-lg"> Read more </button></a>
     </div>
   </div>
+</div>
 </div>
 
 

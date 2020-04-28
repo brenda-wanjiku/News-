@@ -1,4 +1,9 @@
 {% extends 'bootstrap/base.html'%}
+{% block styles%}
+  {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Comic+Neue|Crimson+Text|EB+Garamond|Neucha|Patrick+Hand|Patua+One|Rock+Salt&display=swap" rel="stylesheet">
+{% endblock %}
 
 
 <!-- Navbar block  --> 

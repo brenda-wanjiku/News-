@@ -7,20 +7,27 @@ from ..requests import get_sources, get_articles
 #Views 
 @main.route('/')
 def index():
+    '''
+    View root page function that returns the index page and its data
+    '''
     general = get_sources('general')
     business = get_sources('business')
     technology = get_sources('technology')
-    technology = get_sources('general')
-    sport = get_sources('general')
+    entertainment = get_sources('entertainment')
+    sports = get_sources('sports')
 
-    title = 'News-app'
+    title = 'The Street’s News'
     
 
-    return render_template('index.html', title = title, general = general, business = business, technology= technology  )
+    return render_template('index.html', title = title, general = general, business = business, technology= technology, entertainment = entertainment, sports = sports  )
 
 
 @main.route('/source/<id>')
 def articles(id):
+    '''
+    View source page function that returns articles from a particular source
+    Utilizes the articles_base url API endpoint
+    '''
     news_articles = get_articles(id)
 
     title = f'{id}'

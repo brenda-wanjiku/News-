@@ -11,17 +11,20 @@ category_base_url = None
 def configure_requests(app):
     global api_key, source_base_url, category_base_url,article_base_url
     api_key = app.config['NEWS_API_KEY']
-    source_base_url = app.config['SOURCE_NEWS_BASE_URL']
     category_base_url = app.config['CATEGORIZED_BASE_URL']    
     article_base_url = app.config['ARTICLE_BASE_URL']
 
 
 def get_sources(category):
+    '''
+    Function that gets the json response to our url request
+    '''
     source_url = category_base_url.format(category,api_key)
     print(source_url)
     with urllib.request.urlopen(source_url) as url:
         source_data = url.read()
         source_response = json.loads(source_data)
+       
         
 
         source_results = None
@@ -33,6 +36,13 @@ def get_sources(category):
     return source_results
 
 def process_sources(source_list):
+    '''
+    Function  that processes the sources result and transform them to a list of Objects
+    Args:
+        sources_list: A list of dictionaries that contain sources details
+    Returns :
+        sources_results: A list of sources objects
+    '''
     sources_results = []
     for source_item in source_list:
 
@@ -51,7 +61,9 @@ def process_sources(source_list):
     return sources_results
 
 def get_articles(id):
-    print(id)
+    '''
+    Function that gets the json response to our url request
+    '''
     article_url = article_base_url.format(id,api_key)
     print(article_url)
     with urllib.request.urlopen(article_url) as url:
@@ -69,6 +81,13 @@ def get_articles(id):
 
 
 def process_articles(article_list):
+    '''
+    Function  that processes the news result and transform them to a list of Objects
+    Args:
+        news_list: A list of dictionaries that contain news details
+    Returns :
+        news_results: A list of news objects
+    '''
     article_results = []
 
     for article_item in article_list:
